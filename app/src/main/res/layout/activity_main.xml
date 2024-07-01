@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- FragmentContainerView to host the NavHostFragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -19,7 +18,6 @@
         app:navGraph="@navigation/nav_graph"
         tools:layout="@layout/fragment_one" />
 
-    <!-- BottomNavigationView to manage navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
