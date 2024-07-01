@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_one"
+        android:icon="@drawable/baseline_looks_two_24"
+        android:title="First"/>
+
+    <item
+        android:id="@+id/fragment_two"
+        android:icon="@drawable/baseline_looks_two_24"
+        android:title="Second"/>
+
+    <item
+        android:id="@+id/fragment_three"
+        android:icon="@drawable/baseline_looks_3_24"
+        android:title="Third"/>
+
+    <item
+        android:id="@+id/fragment_four"
+        android:icon="@drawable/baseline_looks_4_24"
+        android:title="Fourth"/>
+
+    <item
+        android:id="@+id/fragment_five"
+        android:icon="@drawable/baseline_looks_5_24"
+        android:title="Fifth"/>
+
+</menu>
