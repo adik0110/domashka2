@@ -19,7 +19,17 @@
     <fragment
         android:id="@+id/fragment_two"
         android:name="ru.itis.summerpractice24.FragmentTwo"
-        android:label="Two" />
+        android:label="Two">
+        <action
+            android:id="@+id/action_fragment_two_to_details"
+            app:destination="@id/fragment_details2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_details2"
+        android:name="ru.itis.summerpractice24.DetailFragment"
+        android:label="Details" />
+
 
     <fragment
         android:id="@+id/fragment_three"
