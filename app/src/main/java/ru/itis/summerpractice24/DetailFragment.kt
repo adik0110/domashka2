@@ -15,26 +15,30 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_details2, container, false)
+        val view = inflater.inflate(R.layout.planet_description, container, false)
 
         val planetId = arguments?.getInt("planetId") ?: 0
         val planetRepository = PlanetRepository()
         val planet = planetRepository.getPlanetById(planetId)
-
         if (planet != null) {
             val imageView: ImageView = view.findViewById(R.id.imageView)
             val nameTextView: TextView = view.findViewById(R.id.nameTextView)
             val descriptionTextView: TextView = view.findViewById(R.id.descriptionTextView)
             val longDescriptionTextView: TextView = view.findViewById(R.id.longDescriptionTextView)
 
-            Glide.with(this).load(planet.imageUrl).into(imageView)
+            Glide.with(this)
+                .load(planet.imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .into(imageView)
+
             nameTextView.text = planet.name
             descriptionTextView.text = planet.description
             longDescriptionTextView.text = planet.longDescription
 
             val backButton: ImageView = view.findViewById(R.id.backButton)
             backButton.setOnClickListener {
-                findNavController().popBackStack() // Возврат на предыдущий фрагмент
+                findNavController().popBackStack()
             }
         }
 

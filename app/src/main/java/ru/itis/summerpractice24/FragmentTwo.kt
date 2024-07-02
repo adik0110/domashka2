@@ -20,7 +20,7 @@ class FragmentTwo : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         val planetRepository = PlanetRepository()
-        val planets = planetRepository.planets // Получение данных из репозитория
+        val planets = planetRepository.planets
 
         val adapter = PlanetAdapter(planets) { planetId ->
             findNavController().navigate(R.id.action_fragment_two_to_details, Bundle().apply {
@@ -30,4 +30,5 @@ class FragmentTwo : Fragment() {
         recyclerView.adapter = adapter
         return view
     }
+
 }

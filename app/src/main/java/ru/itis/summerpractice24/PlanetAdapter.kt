@@ -6,9 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 
-class PlanetAdapter(private val planets: List<Planet>, private val onItemClickListener: (Int) -> Unit) : RecyclerView.Adapter<PlanetAdapter.PlanetViewHolder>() {
+class PlanetAdapter(
+    private val planets: List<Planet>,
+    private val onItemClickListener: (Int) -> Unit
+) : RecyclerView.Adapter<PlanetAdapter.PlanetViewHolder>() {
 
     class PlanetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
@@ -17,13 +20,21 @@ class PlanetAdapter(private val planets: List<Planet>, private val onItemClickLi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.planet_item, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.planet_item, parent, false)
         return PlanetViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: PlanetViewHolder, position: Int) {
         val planet = planets[position]
-        Glide.with(holder.itemView.context).load(planet.imageUrl).into(holder.imageView)
+
+        // Используем Picasso для загрузки изображения
+        Picasso.get()
+            .load(planet.imageUrl)
+            .placeholder(R.drawable.placeholder) // Плейсхолдер пока изображение загружается
+            .error(R.drawable.error) // Изображение при ошибке загрузки
+            .into(holder.imageView)
+
         holder.nameTextView.text = planet.name
         holder.descriptionTextView.text = planet.shortDescription
 
